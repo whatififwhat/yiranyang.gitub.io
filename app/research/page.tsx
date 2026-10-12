@@ -18,7 +18,7 @@ const research = [
   },
   {
     title: 'Space-Environment Controls on the Lunar Exosphere',
-    description: 'I combined global magnetohydrodynamic simulations across eight lunar phases with returned-sample composition data and sputtering and impact-vaporization models to quantify environmental controls on lunar exosphere composition. I developed a collisionless ballistic-transport framework based on Liouville’s theorem to calculate number densities.',
+    description: 'In this project, I worked with two other students to combine global magnetohydrodynamic simulations with returned-sample composition data and impact-vaporization models to quantify environmental controls on lunar exosphere composition. My focsu was to develop a collisionless ballistic-transport framework based on Liouville’s theorem, in order to calculate number densities.',
     figure: {
       src: '/images/lunar-exosphere-density.png',
       alt: 'Lunar exosphere number density versus altitude for O, Si, Al, Mg, Ca, Fe, and Na from micrometeoroid impact vaporization, extending to 10,000 kilometres.',
@@ -30,11 +30,11 @@ const research = [
   },
   {
     title: 'Membraneless Polyester Microdroplets as Prebiotic Compartments',
-    description: 'I investigated how wet–dry cycles control the formation and properties of polyester microdroplets as potential prebiotic compartments. I characterized polymer chain-length distributions using mass spectrometry and evaluated microdroplet compatibility with biomolecules using fluorescence microscopy.',
+    description: 'I investigated how wet–dry cycles control the formation and properties of polyester microdroplets as potential prebiotic compartments on early earth. MALDI-ToF mass spectrometry was used to characteriz polymer chain-length distributions. I also evaluated microdroplet compatibility with biomolecules using fluorescence microscopy.',
   },
   {
     title: 'Fatty-Acid Vesicles as Protocell Compartments',
-    description: 'I tested how silica affects fatty-acid vesicle formation and stability under simulated prebiotic Earth conditions. I characterized vesicle morphology and size distributions using UV–Vis spectroscopy, fluorescence and confocal microscopy, and dynamic light scattering.',
+    description: 'Woring with Prof. Sean Jordan in Dublin, I tested how silica affects fatty-acid vesicle formation and stability under simulated prebiotic Earth conditions. I characterized vesicle morphology and size distributions using UV–Vis spectroscopy, fluorescence and confocal microscopy, and dynamic light scattering.',
   },
 ];
 

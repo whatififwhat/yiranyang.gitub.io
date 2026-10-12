@@ -32,8 +32,11 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
+      - run: npm test
       - run: npm run build
       - run: npm run verify
+      - name: Verify visitor service without recording a visit
+        run: npm run verify:visitor-service
       - uses: actions/upload-pages-artifact@v4
         with:
           path: out

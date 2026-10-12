@@ -20,7 +20,7 @@ python3 -m http.server 5174 --bind 127.0.0.1 --directory out
 ```
 
 Open `http://127.0.0.1:5174/`. The entire deployable website is in `out/`.
-There is no server, database, login, visitor tracking, or owner dashboard in this version.
+The website itself remains a static export. Optional visitor IP records are implemented by a separate Cloudflare Worker and D1 database; collection is **disabled by default**. See [visitor-records setup and review](docs/visitor-records.md). The authenticated Cloudflare D1 console is the private viewer; no public `/admin` or record-reading API is provided.
 
 ## Edit content
 
@@ -31,6 +31,8 @@ There is no server, database, login, visitor tracking, or owner dashboard in thi
 - Responsive layout and mirrored background: `app/globals.css`
 - Public CV: `public/CV_Yiran_Yang.pdf`
 - Canonical origin and public route list: `lib/site-config.ts`
+- Visitor-record switch and public endpoint: `lib/visitor-config.ts`
+- Separate visitor-record backend: `analytics-worker/` (never copy into `public/` or `out/`)
 
 The `/news/` and `/interests/` URLs provide static redirects to Home and its interests section.
 The source contains only current website content and public assets; no legacy repository history is included.

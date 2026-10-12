@@ -1,0 +1,24 @@
+访客 IP 接入增量包，基线 c51d10c
+
+采集范围已于2026-10-12获确认。前端接入与Privacy说明已准备启用，后台写入仍关闭。
+先看 docs/visitor-records.md 的“当前 GitHub 接入步骤”。上传后先通过所有检查，再手动运行发布；随后由助手确认Privacy上线并开启后台采集。
+
+只覆盖/新增下列16个文件，不删除现有照片、CV和其他页面。不要上传zip本身。
+隐藏的 .github/workflows/pages.yml 请单独核对，不能放到根目录workflows。
+
+.github/workflows/pages.yml
+.gitignore
+README.md
+analytics-worker/schema.sql
+analytics-worker/worker.mjs
+analytics-worker/wrangler.jsonc
+app/privacy/page.tsx
+app/privacy/visitor-preference.tsx
+app/site-interactions.tsx
+docs/visitor-records.md
+lib/visitor-config.ts
+lib/visitor-preferences.ts
+package.json
+scripts/verify-export.mjs
+scripts/verify-visitor-service.mjs
+tests/visitor-records.test.mjs

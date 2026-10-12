@@ -1,11 +1,16 @@
 import assert from 'node:assert/strict';
 import { readFile, stat, readdir } from 'node:fs/promises';
 import path from 'node:path';
+import { visitorEndpoint } from '../lib/visitor-config.ts';
 
 const root = path.resolve('out');
 const pages = ['/', '/research/', '/publications/', '/grants/', '/gallery/', '/contact/'];
 const origin = 'https://yiranyang.com';
 const exists = async file => stat(file).then(() => true, () => false);
+const endpoint = visitorEndpoint();
+const privacy = await readFile(path.join(root, 'privacy/index.html'), 'utf8');
+assert.equal(privacy.includes('Visitor records</h2>'), Boolean(endpoint), 'Privacy notice must match visitor-record configuration');
+if (endpoint) assert(privacy.includes('public IP address'), 'Disclose IP collection');
 
 for (const route of [...pages, '/privacy/']) {
   const html = await readFile(path.join(root, route, 'index.html'), 'utf8');
@@ -42,7 +47,8 @@ async function inspect(directory) {
   for (const entry of await readdir(directory, { withFileTypes: true })) {
     const file = path.join(directory, entry.name);
     assert(!entry.isSymbolicLink(), `Do not publish symlinks: ${file}`);
-    assert(!['.git', '.openai', 'work', 'db', 'admin', 'api'].includes(entry.name), `Private or server files: ${file}`);
+    assert(!['.git', '.openai', '.wrangler', 'analytics-worker', 'work', 'db', 'admin', 'api'].includes(entry.name), `Private or server files: ${file}`);
+    assert(!/\.(sql|sqlite|sqlite3|db)$/.test(entry.name), `Database file in public export: ${file}`);
     assert(!entry.name.startsWith('.env'), `Environment file: ${file}`);
     if (entry.isDirectory()) await inspect(file);
     else if (/\.(html|js|css|json|xml|txt)$/.test(entry.name)) {

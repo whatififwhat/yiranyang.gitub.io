@@ -10,7 +10,9 @@
     "dev": "next dev",
     "build": "next build --webpack",
     "check": "tsc --noEmit",
-    "verify": "node scripts/verify-export.mjs"
+    "verify": "node scripts/verify-export.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "verify:visitor-service": "node scripts/verify-visitor-service.mjs"
   },
   "dependencies": {
     "next": "16.3.4",

@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "yiran-visitor-records",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-10-12",
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": { "enabled": false },
+  "vars": { "COLLECTION_ENABLED": "false" },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "yiran-visitor-records",
+    "database_id": "361b6a19-5ecf-40b0-af9c-fcd02db4ea73"
+  }],
+  "ratelimits": [{
+    "name": "VISIT_RATE_LIMITER",
+    "namespace_id": "10012026",
+    "simple": { "limit": 30, "period": 60 }
+  }],
+  "triggers": { "crons": ["0 * * * *"] }
+}
